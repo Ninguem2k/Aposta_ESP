@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+  "name": "Aposta ESP",
+  "short_name": "ESP",
+  "version": "0.0.1",
+  "description": "Calcula a partir das informações o possivel valor ganho e qual é a melhor aposta",
+  "homepage_url": "https://github.com/ninguem2k",
+  "minimum_chrome_version": "21",
+  "icons": {
+    "16": "assets/images/Aposta_ESP16.png",
+    "48": "assets/images/Aposta_ESP48.png",
+    "128": "assets/images/Aposta_ESP128.png"
+  },
+  "options_page": "index.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    "index.html",
+    "assets/css/style.css",
+    "assets/css/main.css"
+  ],
+  "permissions": [
+    "clipboardWrite",
+    "contextMenus",
+    "*://*/*",
+    "<all_urls>"
+  ]
+}
